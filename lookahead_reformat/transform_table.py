@@ -83,7 +83,6 @@ def transform_table(fname):
   data["FOREMAN"] = data["FOREMAN"].apply(lambda i: i.replace("\n"," ").strip())
   data["CREW"] = data["CREW"].apply(lambda i: re.sub(r"\([0-9]+\)|#\s*[0-9]+","",i).strip())
   print(data)
-  data.to_csv("test.csv")
 
   dfs = []
   for _,row in data.iterrows():
@@ -108,6 +107,7 @@ def transform_table(fname):
   result = pd.concat(dfs,ignore_index=True)
   result["Contractor"] = "Macro"
   result.to_excel(fname,index=False,encoding="utf-16")
+  
   return result
 
 

@@ -33,6 +33,7 @@ def run():
     print_str("Lookahead has been converted!\nResult is in the same folder")
 
   except Exception as e:
+    print_str("Could not convert lookahead\nError:")
     print_str(e)
     return
 
