@@ -1,0 +1,1 @@
+pyinstaller --add-data="project_data;project_data" --onefile --noconsole  image_chainages.py
