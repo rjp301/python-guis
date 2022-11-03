@@ -6,7 +6,9 @@ from utils.format_KP import format_KP
 from utils.latest_file import latest_file
 from utils.convert_chainage_string import convert_chainage_string
 
-roads = pd.read_csv(os.path.join("app_data","roads.csv"))
+from roads import gen_roads
+
+roads = gen_roads()
 re_chainage = r"[0-9]+\s*\+\s*[0-9]+"
 
 def first_common_element(x,y):
