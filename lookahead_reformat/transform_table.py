@@ -60,13 +60,14 @@ def get_road(string):
     chainages = [convert_chainage_string(i) for i in chainages]
     roads = [nearest_rd(i) for i in chainages]
   
-  roads = [re.findall(r"[0-9]+[a-z]?",i,flags=re.I) for i in roads]
-  roads = [item for sublist in roads for item in sublist]
-  roads = (pd.Series(roads)
-    .drop_duplicates()
-    .apply(format_rd)
-    .tolist()
-  )
+  else:
+    roads = [re.findall(r"[0-9]+[a-z]?",i,flags=re.I) for i in roads]
+    roads = [item for sublist in roads for item in sublist]
+    roads = (pd.Series(roads)
+      .drop_duplicates()
+      .apply(format_rd)
+      .tolist()
+    )
   if len(roads) == 1: return roads[0]
   return f"{min(roads)} - {max(roads)}"
 
